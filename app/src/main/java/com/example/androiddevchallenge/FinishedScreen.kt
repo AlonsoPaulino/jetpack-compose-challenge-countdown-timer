@@ -15,7 +15,13 @@
  */
 package com.example.androiddevchallenge
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -57,9 +63,11 @@ fun FinishedScreen() {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        Button(onClick = {
-            currentScreen.value = CountdownScreen.START
-        }) {
+        Button(
+            onClick = {
+                currentScreen.value = CountdownScreen.START
+            }
+        ) {
             Text(text = "Click to restart the countdown")
         }
 

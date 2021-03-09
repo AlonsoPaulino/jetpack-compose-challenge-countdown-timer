@@ -34,15 +34,21 @@ val currentScreen = mutableStateOf(CountdownScreen.START)
 enum class CountdownScreen(
     private val showContent: @Composable () -> Unit
 ) {
-    START(showContent = {
-        StartScreen()
-    }),
-    COUNTING_DOWN(showContent = {
-        CountingDownScreen()
-    }),
-    FINISHED(showContent = {
-        FinishedScreen()
-    });
+    START(
+        showContent = {
+            StartScreen()
+        }
+    ),
+    COUNTING_DOWN(
+        showContent = {
+            CountingDownScreen()
+        }
+    ),
+    FINISHED(
+        showContent = {
+            FinishedScreen()
+        }
+    );
 
     @SuppressLint("ComposableNaming")
     @Composable
@@ -68,9 +74,11 @@ fun MyApp() {
     MyTheme {
         Surface(color = MaterialTheme.colors.background) {
             Crossfade(targetState = currentScreen.value) { screen ->
-                screen.show(completion = {
-                    currentScreen.value = screen
-                })
+                screen.show(
+                    completion = {
+                        currentScreen.value = screen
+                    }
+                )
             }
         }
     }

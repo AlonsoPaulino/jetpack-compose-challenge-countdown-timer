@@ -16,7 +16,13 @@
 package com.example.androiddevchallenge
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -95,7 +101,6 @@ fun Clock() {
         while (counter.value > 0) {
             delay(1000L)
             counter.value = counter.value - 1
-
         }
         currentScreen.value = CountdownScreen.FINISHED
     }

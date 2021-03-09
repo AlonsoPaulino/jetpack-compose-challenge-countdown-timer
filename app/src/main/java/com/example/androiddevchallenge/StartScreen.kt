@@ -15,7 +15,13 @@
  */
 package com.example.androiddevchallenge
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -48,10 +54,12 @@ fun StartScreen() {
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        Button(onClick = {
-            counter.value = COUNTDOWN_TIME_SECONDS
-            currentScreen.value = CountdownScreen.COUNTING_DOWN
-        }) {
+        Button(
+            onClick = {
+                counter.value = COUNTDOWN_TIME_SECONDS
+                currentScreen.value = CountdownScreen.COUNTING_DOWN
+            }
+        ) {
             Text(text = "Click here to start the countdown")
         }
 
@@ -59,8 +67,8 @@ fun StartScreen() {
 
         Text(
             text = "For now you can only countdown $COUNTDOWN_TIME_SECONDS seconds \n Sorry for that, " +
-                    "I am newbie with Compose, but next time it will be " +
-                    "customizable enough!. \n\n By Alonso",
+                "I am newbie with Compose, but next time it will be " +
+                "customizable enough!. \n\n By Alonso",
             style = typography.body2,
             fontFamily = FontFamily.Cursive,
             textAlign = TextAlign.Center
