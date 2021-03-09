@@ -25,7 +25,7 @@ fun StartScreen() {
         val typography = MaterialTheme.typography
 
         Text(
-            text = "10 seconds countdown!",
+            text = "$COUNTDOWN_TIME_SECONDS seconds countdown!",
             style = typography.h3,
             fontFamily = FontFamily.Serif,
             textAlign = TextAlign.Center
@@ -34,6 +34,7 @@ fun StartScreen() {
         Spacer(modifier = Modifier.height(24.dp))
 
         Button(onClick = {
+            counter.value = COUNTDOWN_TIME_SECONDS
             currentScreen.value = CountdownScreen.COUNTING_DOWN
         }) {
             Text(text = "Click here to start the countdown")
@@ -42,7 +43,7 @@ fun StartScreen() {
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "For now you can only countdown 10 seconds \n Sorry for that, " +
+            text = "For now you can only countdown $COUNTDOWN_TIME_SECONDS seconds \n Sorry for that, " +
                     "I am newbie with Compose, but next time it will be " +
                     "customizable enough!. \n\n By Alonso",
             style = typography.body2,

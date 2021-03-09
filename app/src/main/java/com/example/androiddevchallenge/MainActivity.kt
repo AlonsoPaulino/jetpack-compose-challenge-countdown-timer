@@ -27,7 +27,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
-const val COUNTDOWN_TIME_MILLIS = 10000L
+const val COUNTDOWN_TIME_SECONDS = 30
+val counter = mutableStateOf(COUNTDOWN_TIME_SECONDS)
 val currentScreen = mutableStateOf(CountdownScreen.START)
 
 enum class CountdownScreen(
