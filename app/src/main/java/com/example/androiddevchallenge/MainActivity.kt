@@ -15,23 +15,48 @@
  */
 package com.example.androiddevchallenge
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.Crossfade
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.androiddevchallenge.ui.theme.MyTheme
+
+const val COUNTDOWN_TIME_MILLIS = 10000L
+val currentScreen = mutableStateOf(CountdownScreen.START)
+
+enum class CountdownScreen(
+    private val showContent: @Composable () -> Unit
+) {
+    START(showContent = {
+        StartScreen()
+    }),
+    COUNTING_DOWN(showContent = {
+        CountingDownScreen()
+    }),
+    FINISHED(showContent = {
+        FinishedScreen()
+    });
+
+    @SuppressLint("ComposableNaming")
+    @Composable
+    fun show(completion: () -> Unit) {
+        showContent().also {
+            completion()
+        }
+    }
+}
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyTheme {
-                MyApp()
-            }
+            MyApp()
         }
     }
 }
@@ -39,8 +64,14 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+    MyTheme {
+        Surface(color = MaterialTheme.colors.background) {
+            Crossfade(targetState = currentScreen.value) { screen ->
+                screen.show(completion = {
+                    currentScreen.value = screen
+                })
+            }
+        }
     }
 }
 
