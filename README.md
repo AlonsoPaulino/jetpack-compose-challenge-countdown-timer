@@ -2,21 +2,24 @@
 
 <!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
 <!--- You can find both of these in the url bar when you open your repository in github. -->
-![Workflow result](https://github.com/<OWNER>/<REPOSITORY>/workflows/Check/badge.svg)
+![Workflow result](https://github.com/lllAlonsolll/jetpack-compose-challenge-countdown-timer/workflows/Check/badge.svg)
 
 
 ## :scroll: Description
 <!--- Describe your app in one or two sentences -->
 
+Simple countdown Timer is a small ap built on top of the new Jetpack Compose. Its purpose is to get familiar with the new declarative approach that Compose offers.
 
 ## :bulb: Motivation and Context
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
 
+The main motiviation is the Android Jetpack Compose Challenge. In the week #2 we were asked to build a countdown taking advatange of Compose. The code you can see here is basically the submission I made to this challenge.
+
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
-<img src="/results/screenshot_1.png" width="260">&emsp;<img src="/results/screenshot_2.png" width="260">
+<img src="results/screenshot_start_screen.png" width="260">&emsp;<img src="results/screenshot_counting_screen.png" width="260">&emsp;<img src="results/screenshot_finish_screen.png" width="260">
 
 ## License
 ```
